@@ -8,7 +8,16 @@
 
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="bg-gray-500">
-
+    <body class="bg-blue-200">
+        @for ($loop = 1; $loop < 5; $loop++)
+            <div class="bg-white w-52 min-h-48 rounded-lg p-4 m-4"> 
+                <h2 class="text-xl font-semibold"> 
+                    Note {{ $loop }}
+                </h2>
+                <p>
+                    Note body
+                </p>
+            </div>
+        @endfor
     </body>
 </html>

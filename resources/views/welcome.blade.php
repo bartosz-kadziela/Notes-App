@@ -9,15 +9,15 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="bg-blue-200">
-        @for ($loop = 1; $loop < 5; $loop++)
-            <div class="bg-white w-52 min-h-48 rounded-lg p-4 m-4"> 
-                <h2 class="text-xl font-semibold"> 
-                    Note {{ $loop }}
-                </h2>
-                <p>
-                    Note body
-                </p>
-            </div>
-        @endfor
+        <div class="bg-white w-52 min-h-48 rounded-lg p-4 m-4">
+            <form method="post" action="/notes">
+                @csrf
+                <input type="text" id="title" name="title" placeholder="Title" class="w-full text-xl font-semibold"/>
+                <textarea id="body" name="body" rows="5" placeholder="Enter your note body here" class="w-full"></textarea>
+                <div class="text-right">
+                    <button type="submit" class="bg-blue-400 px-4 rounded-lg text-white">Save</button>
+                </div>
+            </form>
+        </div>
     </body>
 </html>

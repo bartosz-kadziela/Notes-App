@@ -1,3 +1,7 @@
+@php
+    use App\Models\Note;
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -18,6 +22,18 @@
                     <button type="submit" class="bg-blue-400 px-4 rounded-lg text-white">Save</button>
                 </div>
             </form>
+        </div>
+        <div>
+            @foreach (Note::all() as $note)
+                <div class="float-left bg-white w-52 min-h-48 rounded-lg p-4 m-4">
+                    <h2 class="text-xl font-semibold">
+                        {{ $note->title }}
+                    </h2>
+                    <p>
+                        {{ $note->body }}
+                    </p>
+                </div>
+            @endforeach
         </div>
     </body>
 </html>
